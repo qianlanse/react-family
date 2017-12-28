@@ -1,18 +1,27 @@
 const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const r = file => path.join(__dirname, file)
 
 module.exports = {
     entry: {
-        app: r('src/index')
+        app: [
+            'react-hot-loader/patch',
+            r('src/index')
+        ],
+        vender: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
     },
     output: {
         path: r('./dist'),
-        filename: '[name].js'
+        filename: 'js/[name].[hash].js',
+        chunkFilename: 'js/[name].[chunkhash].js'
     },
+    devtool: 'inline-source-map',   // 定位错误信息
     module: {
         rules: [
             {
                 test: /\.js$/,
+                include: r('src'),
                 use: [
                     {
                         loader: 'babel-loader',
@@ -20,21 +29,67 @@ module.exports = {
                             cacheDirectory: true
                         }
                     }
-                ],
-                include: r('src')
+                ]
+            },
+            {
+                test: /\.sass$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[local]-[hash:base64:8]'
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'imgs/[hash:8].[name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
     devServer: {
         contentBase: r('dist'),
         historyApiFallback: true,
-        port: 3001
+        port: 3001,
+        hot: true
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vender'
+        }),
+        new HtmlWebpackPlugin({
+            title: '我的古风音乐园',
+            filename: 'index.html',
+            template: r('src/index.html')
+        })
+    ],
     resolve: {
         alias: {
             screens: r('src/screens'),
             components: r('src/components'),
-            router: r('src/router')
+            router: r('src/router'),
+            reducers: r('src/redux/reducers'),
+            actions: r('src/redux/actions')
         }
     }
 }
