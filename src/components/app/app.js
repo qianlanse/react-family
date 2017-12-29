@@ -1,16 +1,35 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import classNames from 'classnames'
 import Router from 'router/router'
 import Nav from 'components/nav/nav'
 import style from './app.sass'
 
-@withRouter
 export default class App extends Component {
+    state = {
+        mobileShowSidebar: false
+    }
+    show = () => {
+        this.setState({
+            mobileShowSidebar: !this.state.mobileShowSidebar
+        })
+    }
     render() {
+        const innerStyle = classNames(style['sidebar-content'], {
+            [style['mobile-sidebar-content-show']]: this.state.mobileShowSidebar
+        })
+        const maskStyle = classNames(style['mobile-mask'], {
+            [style['mobile-mask-show']]: this.state.mobileShowSidebar
+        })
         return (
             <div className={style.container}>
-                <Nav />
-                <div className={style.mainWrapper}>
+                <div className={style.sidebar}>
+                    <div className={maskStyle} onClick={this.show}/>
+                    <div className={innerStyle}>
+                        <Nav />
+                    </div>
+                </div>
+                <div className={style['mobile-menu-wrapper']} onClick={this.show}>SHOW</div>
+                <div className={style.main}>
                     {Router()}
                 </div>
             </div>

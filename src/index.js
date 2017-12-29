@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from 'components/app/app'
 import store from './redux/store'
+import 'assets/styles/index.sass'
 
 const render = Component => {
     ReactDOM.render(

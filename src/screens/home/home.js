@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { login } from 'actions/user'
+import Scroll from 'components/scroll/scroll'
 import { container } from './home.sass'
 
-@connect(
+/* @connect(
     state => state.user,
     { login }
-)
+) */
 class Home extends React.Component {
     add = () => {
         this.props.login()
@@ -21,4 +22,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default connect(state => state.user, { login })(Home)

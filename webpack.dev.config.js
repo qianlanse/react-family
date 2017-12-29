@@ -87,9 +87,11 @@ module.exports = {
         alias: {
             screens: r('src/screens'),
             components: r('src/components'),
+            common: r('src/common'),
             router: r('src/router'),
             reducers: r('src/redux/reducers'),
-            actions: r('src/redux/actions')
+            actions: r('src/redux/actions'),
+            assets: r('src/assets')
         }
     }
 }
