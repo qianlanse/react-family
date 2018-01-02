@@ -63,6 +63,17 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 100000
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -70,7 +81,8 @@ module.exports = {
         contentBase: r('dist'),
         historyApiFallback: true,
         port: 3001,
-        hot: true
+        hot: true,
+        publicPath: '/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

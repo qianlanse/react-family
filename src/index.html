@@ -7,6 +7,11 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" ontouchmove="_ontouchmove"></div>
+    <script>
+        function _ontouchmove(e) {
+            e.preventDefault()
+        }
+    </script>
 </body>
 </html>
