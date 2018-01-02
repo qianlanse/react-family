@@ -21,7 +21,7 @@ export default class App extends Component {
         const maskStyle = classNames(style['mobile-mask'], {
             [style['mobile-mask-show']]: this.state.mobileShowSidebar
         })
-        const menuIcon = classNames(icon['iconfont'], icon['icon-cd_icon'])
+        const menuIcon = classNames(icon['icomoon'], icon['icon-menu-icon'])
         return (
             <div className={style.container}>
                 <div className={style.sidebar}>

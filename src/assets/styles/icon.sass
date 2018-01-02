@@ -1,26 +1,36 @@
 @font-face
-  font-family: "iconfont"
-  src: url('../fonts/iconfont.eot?t=1514876692726') /* IE9*/
-  src: url('../fonts/iconfont.eot?t=1514876692726#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
-  url('../fonts/iconfont.ttf?t=1514876692726') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/iconfont.svg?t=1514876692726#iconfont') format('svg') /* iOS 4.1- */
+	font-family: 'icomoon'
+	src: url('../fonts/icomoon.eot?za04gz')
+	src: url('../fonts/icomoon.eot?za04gz#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon.ttf?za04gz') format('truetype'),
+	url('../fonts/icomoon.woff?za04gz') format('woff'),
+	url('../fonts/icomoon.svg?za04gz#icomoon') format('svg')
+	font-weight: normal
+	font-style: normal
 
-.iconfont
-  font-family: "iconfont" !important
-  font-size: 16px
+[class^="icon-"], [class*=" icon-"]
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important
+  speak: none
   font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-.icon-iconfontweibiaoti1:before
-  content: "\e6ab"
 
-.icon-cd_icon:before
-  content: "\e60c"
+.icon-center-icon:before
+  content: "\e900"
 
-.icon-gerenzhongxin-copy:before
-  content: "\e613"
+.icon-love-icon:before
+  content: "\e901"
 
-.icon-xihuan:before
-  content: "\e76a"
+.icon-menu-icon:before
+  content: "\e902"
+
+.icon-music-icon:before
+  content: "\e903"

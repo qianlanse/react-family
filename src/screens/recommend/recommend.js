@@ -4,7 +4,7 @@ import icon from 'assets/styles/icon.sass'
 
 class Recommend extends React.Component {
     render() {
-        const likeIcon  = classNames(icon['iconfont'], icon['icon-xihuan'])
+        const likeIcon  = classNames(icon['icomoon'], icon['icon-love-icon'])
         return (
             <div>
                 <p>Recommend</p>
