@@ -15,6 +15,9 @@ export default class App extends Component {
         })
     }
     render() {
+        const sidebarStyle = classNames(style['sidebar'], {
+            [style['mobile-sidebar-show']]: this.state.mobileShowSidebar
+        })
         const innerStyle = classNames(style['sidebar-content'], {
             [style['mobile-sidebar-content-show']]: this.state.mobileShowSidebar
         })
@@ -24,7 +27,7 @@ export default class App extends Component {
         const menuIcon = classNames(icon['icomoon'], icon['icon-menu-icon'])
         return (
             <div className={style.container}>
-                <div className={style.sidebar}>
+                <div className={sidebarStyle}>
                     <div className={maskStyle} onClick={this.show}/>
                     <div className={innerStyle}>
                         <Nav />

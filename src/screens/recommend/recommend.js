@@ -1,14 +1,11 @@
 import React from 'react'
-import classNames from 'classnames'
-import icon from 'assets/styles/icon.sass'
+import style from './recommend.sass'
 
 class Recommend extends React.Component {
     render() {
-        const likeIcon  = classNames(icon['icomoon'], icon['icon-love-icon'])
         return (
-            <div>
-                <p>Recommend</p>
-                <i className={likeIcon}></i>
+            <div className={style['recommend']} ref='recommend'>
+                
             </div>
         )
     }
