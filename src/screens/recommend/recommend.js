@@ -5,7 +5,7 @@ class Recommend extends React.Component {
     render() {
         return (
             <div className={style['recommend']} ref='recommend'>
-                
+                <h2>123</h2>
             </div>
         )
     }

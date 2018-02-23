@@ -1,4 +1,5 @@
 import { AUTH_SUCCESS } from './types'
+
 export const login = () => {
     return dispatch => {
         return dispatch(loginHandler())
